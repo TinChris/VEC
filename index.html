@@ -265,6 +265,7 @@
       border: 1px solid var(--border-color);
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
     .card::before {
@@ -274,7 +275,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: var(--primary-color);
+      background: var(--medical-gradient);
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
@@ -297,6 +298,43 @@
     .card p {
       color: var(--text-light);
       margin-bottom: 20px;
+    }
+
+    .doctor-image {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .doctor-image svg {
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .doctor-image svg {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .doctor-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .btn-secondary {
+      background: var(--accent-color);
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .btn-secondary:hover {
+      background: #45b373;
     }
 
     .btn {
@@ -584,11 +622,17 @@
           <div class="hero-image">
             <div style="width: 100%; height: 400px; background: rgba(255,255,255,0.1); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
               <img
+
   src="IMG_2828.jpg"
+
   alt="Recepció – Városkapu Egészségcentrum"
+
   decoding="async"
+
   fetchpriority="high"
+
   loading="eager"
+
 />
             </div>
           </div>
@@ -601,58 +645,220 @@
         <h2>Orvosaink</h2>
         <div class="grid">
           <article class="card">
-            <h3>Dr. Marton Péter</h3>
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad1)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad1)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
+            <h3>Dr. Márton Péter</h3>
             <p>Nőgyógyászat</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-marton-peter">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-marton-peter">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-marton-peter" data-label="orvos_profil_dr-marton-peter">👨‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad2)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad2)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Salamon Attila</h3>
             <p>Fül-orr-gégészet</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-salamon-attila">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-salamon-attila">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-salamon-attila" data-label="orvos_profil_dr-salamon-attila">👨‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad3)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad3)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Rumi Márk</h3>
             <p>Ortopédia / Traumatológia</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-rumi-mark">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-rumi-mark">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-rumi-mark" data-label="orvos_profil_dr-rumi-mark">👨‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad4)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad4)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Pintér Márta Angelika</h3>
             <p>Fogszabályozás / Fogászat</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-pinter-marta-angelika">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-pinter-marta-angelika">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-pinter-marta-angelika" data-label="orvos_profil_dr-pinter-marta-angelika">👩‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad5)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad5)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Nyikovics Attila</h3>
             <p>Belgyógyászat</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-nyikovics-attila">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-nyikovics-attila">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-nyikovics-attila" data-label="orvos_profil_dr-nyikovics-attila">👨‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad6)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad6)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Winkler Beáta</h3>
             <p>Nőgyógyászat</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-winkler-beata">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-winkler-beata">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-winkler-beata" data-label="orvos_profil_dr-winkler-beata">👩‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad7)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad7)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Boncz Ágota</h3>
             <p>Endokrinológia / Diabetológia</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-boncz-agota">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-boncz-agota">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-boncz-agota" data-label="orvos_profil_dr-boncz-agota">👩‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad8)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad8)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Szalai Zsuzsanna</h3>
             <p>Tüdőgyógyászat</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-szalaizsuzsanna">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-szalaizsuzsanna">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-szalai-zsuzsanna" data-label="orvos_profil_dr-szalai-zsuzsanna">👩‍⚕️ Profil</a>
+            </div>
           </article>
           <article class="card">
+            <div class="doctor-image">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="doctorGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2a7b9b;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#5fa397;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#57c785;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="35" r="15" fill="url(#doctorGrad9)" opacity="0.8"/>
+                <path d="M25 65 C25 55, 35 50, 50 50 C65 50, 75 55, 75 65 L75 85 L25 85 Z" fill="url(#doctorGrad9)" opacity="0.8"/>
+                <path d="M45 25 L55 25 L55 45 L45 45 Z" fill="white"/>
+                <path d="M40 35 L60 35 L60 40 L40 40 Z" fill="white"/>
+              </svg>
+            </div>
             <h3>Dr. Kiss Mónika</h3>
             <p>Pszichiátria</p>
             <div class="small">Rendelés: Városkapu Egészségcentrum</div>
-            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-kiss-monika">📞 Hívás időpontért</a></p>
+            <div class="doctor-buttons">
+              <a class="btn btn-primary" href="tel:+3696566401" data-label="orvos_kartya_dr-kiss-monika">📞 Időpont</a>
+              <a class="btn btn-secondary" href="/orvosok/dr-kiss-monika" data-label="orvos_profil_dr-kiss-monika">👩‍⚕️ Profil</a>
+            </div>
           </article>
         </div>
       </div>
