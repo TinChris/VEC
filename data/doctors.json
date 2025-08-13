@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "dr-rumi-mark",
+    "name": "Dr. Rumi Márk",
+    "specialty": "Ortopédia / Traumatológia"
+  },
+  {
+    "slug": "dr-marton-peter",
+    "name": "Dr. Márton Péter",
+    "specialty": "Nőgyógyászat"
+  },
+  {
+    "slug": "dr-nyikovics-attila",
+    "name": "Dr. Nyikovics Attila",
+    "specialty": "Sebészet"
+  },
+  {
+    "slug": "dr-winkler-beata",
+    "name": "Dr. Winkler Beáta",
+    "specialty": "Nőgyógyászat"
+  },
+  {
+    "slug": "dr-salamon-attila",
+    "name": "Dr. Salamon Attila",
+    "specialty": "Fül-orr-gégészet"
+  },
+  {
+    "slug": "dr-pinter-marta-angelika",
+    "name": "Dr. Pintér Márta Angelika",
+    "specialty": "Fogszabályozás / Fogászat"
+  },
+  {
+    "slug": "dr-boncz-agota",
+    "name": "Dr. Boncz Ágota",
+    "specialty": "Endokrinológia / Diabetológia"
+  },
+  {
+    "slug": "dr-szalaizsuzsanna",
+    "name": "Dr. Szalai Zsuzsanna",
+    "specialty": "Tüdőgyógyászat, allergológia"
+  },
+  {
+    "slug": "dr-kiss-monika",
+    "name": "Dr. Kiss Mónika",
+    "specialty": "Pszichiátria"
+  }
+]
