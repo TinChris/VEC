@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Városkapu Egészségcentrum – Időpontfoglalás telefonon</title>
+  <meta name="description" content="Városkapu Egészségcentrum – Mosonmagyaróvár. Időpontfoglalás telefonon: 06-96-566-401. Orvosaink, laborvizsgálat és radiológia.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #2a7b9b;
+      --primary-hover: #1f5f7a;
+      --secondary-color: #f0f9ff;
+      --accent-color: #57c785;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --gradient: linear-gradient(90deg, rgba(42, 123, 155, 1) 19%, rgba(95, 163, 151, 1) 44%, rgba(87, 199, 133, 1) 100%);
+      --medical-gradient: linear-gradient(90deg, rgba(42, 123, 155, 1) 19%, rgba(95, 163, 151, 1) 44%, rgba(87, 199, 133, 1) 100%);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover {
+      transform: scale(1.05);
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover .logo {
+      transform: rotate(5deg);
+    }
+
+    .header-cta {
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .header-cta:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--medical-gradient);
+      color: var(--white);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="80" fill="url(%23a)"/></svg>') no-repeat;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    .container-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--white);
+      color: var(--primary-color);
+      padding: 18px 36px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-lg);
+      animation: fadeInUp 0.8s ease-out 0.4s both, pulse 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(42, 123, 155, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.6s ease;
+    }
+
+    .cta:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .cta:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 25px -5px rgba(42, 123, 155, 0.3);
+      background: var(--secondary-color);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 15px 25px -5px rgba(42, 123, 155, 0.4);
+      }
+      50% {
+        box-shadow: 0 15px 35px -5px rgba(87, 199, 133, 0.6);
+      }
+    }
+
+    .hero-image {
+      position: relative;
+      animation: fadeInRight 0.8s ease-out 0.6s both;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .small {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 15px;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section:nth-child(even) {
+      background: var(--secondary-color);
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    /* Card Styles */
+    .card {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary-color);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .card p {
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    /* Contact Section */
+    .kapcsolat {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .kapcsolat a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .kapcsolat a:hover {
+      color: var(--primary-hover);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text-dark);
+      color: var(--white);
+      padding: 40px 0;
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer .small {
+      opacity: 0.7;
+    }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      animation: slideInUp 0.5s ease-out;
+    }
+
+    .sticky-cta a {
+      display: block;
+      background: var(--medical-gradient);
+      color: var(--white);
+      padding: 15px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .sticky-cta a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Scroll animations */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kapcsolat {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer .container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+      }
+
+      .sticky-cta {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .sticky-cta a {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+
+    /* Loading animation */
+    .page-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      transition: opacity 0.5s ease;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 4px solid var(--border-color);
+      border-top: 4px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .page-loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader"></div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner container">
+      <a class="brand" href="/">
+        <div class="logo" style="width: 60px; height: 60px; background: var(--medical-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem;">VEC</div>
+        <span class="brand-text">Városkapu Egészségcentrum</span>
+      </a>
+      <a href="tel:+3696566401" class="header-cta" data-label="header_cta">📞 Hívás most – 06-96-566-401</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="container-hero-inner" id="hero-inner">
+          <div id="hero-cta">
+            <h1>Időpontfoglalás telefonon</h1>
+            <p>Hívd recepciósainkat, és lefoglaljuk az első szabad időpontot.</p>
+            <p>
+              <a class="cta" href="tel:+3696566401" data-label="hero_cta">
+                📞 Hívás most – 06-96-566-401
+              </a>
+            </p>
+            <div class="small">Recepció elérhető: H–P 08:00–16:00</div>
+          </div>
+
+          <div class="hero-image">
+            <div style="width: 100%; height: 400px; background: rgba(255,255,255,0.1); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+              🏥 Recepció fotó helye
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section scroll-reveal">
+      <div class="container">
+        <h2>Orvosaink</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Dr. Márton Péter</h3>
+            <p>Nőgyógyászat</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-marton-peter">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Salamon Attila</h3>
+            <p>Fül-orr-gégészet</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-salamon-attila">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Rumi Márk</h3>
+            <p>Ortopédia / Traumatológia</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-rumi-mark">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Pintér Márta Angelika</h3>
+            <p>Fogszabályozás / Fogászat</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-pinter-marta-angelika">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Nyikovics Attila</h3>
+            <p>Belgyógyászat</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-nyikovics-attila">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Winkler Beáta</h3>
+            <p>Nőgyógyászat</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-winkler-beata">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Boncz Ágota</h3>
+            <p>Endokrinológia / Diabetológia</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-boncz-agota">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Szalai Zsuzsanna</h3>
+            <p>Tüdőgyógyászat</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-szalaizsuzsanna">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Dr. Kiss Mónika</h3>
+            <p>Pszichiátria</p>
+            <div class="small">Rendelés: Városkapu Egészségcentrum</div>
+            <p><a class="btn" href="tel:+3696566401" data-label="orvos_kartya_dr-kiss-monika">📞 Hívás időpontért</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="szolgaltatasok" class="section scroll-reveal" aria-label="Szolgáltatások">
+      <div class="container">
+        <h2>Szolgáltatásaink</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Laborvizsgálat</h3>
+            <p>Vérvétel és alap/összetett laborcsomagok. Előkészület szükségessége vizsgálattól függ.</p>
+            <span class="badge">Telefonos időpont</span>
+            <p><a class="btn" href="tel:+3696566401" data-label="labor_cta">📞 Hívás időpontért</a></p>
+          </article>
+          <article class="card">
+            <h3>Radiológia</h3>
+            <p>Röntgen, ultrahang – elérhetőség és készülék terheltség szerint.</p>
+            <span class="badge">Telefonos időpont</span>
+            <p><a class="btn" href="tel:+3696566401" data-label="radiologia_cta">📞 Hívás időpontért</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kapcsolat" class="section scroll-reveal">
+      <div class="container kapcsolat">
+        <div>
+          <h2>Kapcsolat</h2>
+          <p>Telefon: <a href="tel:+3696566401" data-label="kapcsolat_tel">06-96-566-401</a></p>
+          <p>E-mail: <a href="mailto:info@varoskapu.hu">info@varoskapu.hu</a></p>
+          <p class="small">Cím: 9200- Mosonmagyaróvár, Városkapu tér 5</p>
+          <p><a class="btn" href="tel:+3696566401" data-label="kapcsolat_cta">📞 Hívás most</a></p>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Megközelítés</h3>
+            <p>Parkolás a környező utcákban. Akadálymentes bejutás biztosított. A parkolás a Városkapu téren 14 óra után díjmentes.</p>
+            <div style="width: 100%; height: 200px; background: var(--secondary-color); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--text-light); margin-top: 15px;">
+              🗺️ Térkép helye
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© Városkapu Egészségcentrum • Telefon: 06-96-566-401</div>
+      <div class="small">Adatkezelés • Impresszum</div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" aria-label="Telefonos időpontfoglalás">
+    <a href="tel:+3696566401" data-label="sticky_cta">📞 Hívás most – 06-96-566-401</a>
+  </div>
+
+  <script>
+    // Page loader
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('pageLoader');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    });
+
+    // Smooth scroll reveal animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.scroll-reveal');
+      
+      reveals.forEach(reveal => {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveal.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+          reveal.classList.add('revealed');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+      } else {
+        header.style.background = 'var(--white)';
+        header.style.backdropFilter = 'none';
+      }
+    });
+
+    // CTA click tracking
+    document.addEventListener('click', function(e) {
+      if (e.target.dataset.label) {
+        // Here you can add analytics tracking
+        console.log('CTA clicked:', e.target.dataset.label);
+      }
+    });
+
+    // Add hover effects to cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Animate numbers or add interactive effects
+    function animateOnView(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }
+
+    // Create intersection observer for animations
+    const observer = new IntersectionObserver(animateOnView, {
+      threshold: 0.1
+    });
+
+    // Observe all cards for animation
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Add phone number formatting
+    function formatPhoneNumber(phone) {
+      return phone.replace(/(\d{2})(\d{2})(\d{3})(\d{3})/, '+36-$1-$2-$3-$4');
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add any initialization code here
+      revealOnScroll();
+      
+      // Add loading states to buttons
+      document.querySelectorAll('.btn, .cta').forEach(button => {
+        button.addEventListener('click', function() {
+          const originalText = this.textContent;
+          this.style.opacity = '0.7';
+          setTimeout(() => {
+            this.style.opacity = '1';
+          }, 200);
+        });
+      });
+    });
+
+    // Add touch support for mobile
+    if ('ontouchstart' in window) {
+      document.body.classList.add('touch-device');
+    }
+  </script>
+</body>
+</html>
